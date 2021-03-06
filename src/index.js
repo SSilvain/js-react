@@ -13,4 +13,4 @@ const App = function (props) {
     );
 };
 
-ReactDOM.render(<App name="John" age="73" />, document.getElementById("root"));
+ReactDOM.render(<App name="Ben" age="73" />, document.getElementById("root"));
