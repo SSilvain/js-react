@@ -7,12 +7,18 @@ class App extends Component {
         this.state = {
             balance: 0,
         };
+        this.onIncrease = this.onIncrease.bind(this);
+    }
+    onIncrease() {
+        this.setState({
+            balance: this.state.balance + 1,
+        });
     }
     render() {
         return (
             <div>
-                <Balance balance={this.state.balance}>Баланс:</Balance>
-                <Balance balance={this.state.balance}>Остаток:</Balance>
+                <Balance balance={this.state.balance} />
+                <button onClick={this.onIncrease}>Add 1</button>
             </div>
         );
     }
