@@ -1,13 +1,18 @@
 import { Component } from "react";
-import User from "../User";
+import Balance from "../Balance";
 
 class App extends Component {
-    name = "Vanda";
+    constructor() {
+        super();
+        this.state = {
+            balance: 0,
+        };
+    }
     render() {
         return (
             <div>
-                <User name={this.name} age={22} />
-                <User name="Kate" age="28" />
+                <Balance balance={this.state.balance}>Баланс:</Balance>
+                <Balance balance={this.state.balance}>Остаток:</Balance>
             </div>
         );
     }
