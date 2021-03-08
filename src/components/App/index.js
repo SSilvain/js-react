@@ -21,7 +21,7 @@ class App extends Component {
         );
     };
     // shouldComponentUpdate(nextProps, nextState) {
-    //     return nextState.balance < 5;
+    //     return nextState.balance < 17;
     // }
     onIncrease = () => {
         this.setState({

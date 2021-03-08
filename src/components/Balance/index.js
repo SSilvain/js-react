@@ -1,9 +1,11 @@
-const Balance = ({ balance, children }) => {
+const Balance = ({ balance }) => {
+    let myArr = ["hello", "world"];
+    let [one, two] = myArr;
     return (
-        <div>
-            {children}
-            {balance}
-        </div>
+        <>
+            <div>{balance}</div>
+            <div>Destructuring {one + two}</div>
+        </>
     );
 };
 
