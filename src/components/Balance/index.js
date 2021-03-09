@@ -1,10 +1,8 @@
 const Balance = ({ balance }) => {
-    let myArr = ["hello", "world"];
-    let [one, two] = myArr;
     return (
         <>
-            <div>{balance}</div>
-            <div>Destructuring {one + two}</div>
+            <h1>Баланс:</h1>
+            <h2 style={{ padding: "0 0 0 20px" }}>{balance}</h2>
         </>
     );
 };

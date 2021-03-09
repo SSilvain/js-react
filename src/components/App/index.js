@@ -35,7 +35,10 @@ class App extends Component {
     };
 
     onChange = (value) => {
-        debugger;
+        this.setState((state) => ({
+            balance: state.balance + Number(value),
+            transactions: [{ value, label: "change" }, ...state.transactions],
+        }));
     };
     render() {
         return (

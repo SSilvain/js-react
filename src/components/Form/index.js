@@ -4,11 +4,12 @@ class Form extends Component {
     constructor() {
         super();
         this.state = {
-            value: 0,
+            value: "",
         };
     }
     onSubmit = (e) => {
         e.preventDefault();
+        this.props.onChange(this.state.value);
     };
     onChange = (e) => {
         const { value } = e.target;
