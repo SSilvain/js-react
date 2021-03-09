@@ -1,5 +1,6 @@
 import {Component} from "react";
 import Balance from "../Balance";
+import Transaction from "../Transaction";
 import Transactions from "../Transactions";
 
 let id = 0;
@@ -32,9 +33,6 @@ class App extends Component {
             JSON.stringify(this.state.balance)
         );
     };
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     return nextState.balance < 17;
-    // }
     onIncrease = () => {
         this.setState((state) => ({
             balance: state.balance + 1,
@@ -62,12 +60,6 @@ class App extends Component {
         }));
     };
 
-    renderTrans = () => {return (
-        this.state.transactions.map(t => {
-            return <Transactions key={t.id} label={t.label} value={t.value}/>
-        }))
-    }
-
 
 
     render() {
@@ -78,13 +70,7 @@ class App extends Component {
                 <button onClick={this.onDecrease}>Minus 1</button>
                 <button onClick={this.STORE}>STORE</button>
                 
-                <ul>
-                    {this.renderTrans()}
-                    {/*{this.state.transactions.map(t => {
-                        return <Transactions id={t.id} label={t.label} value={t.value}/>
-                    })
-                    }*/}
-                </ul>
+                    <Transactions transactions={this.state.transactions} />
             </div>
         );
     }
