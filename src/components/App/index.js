@@ -1,6 +1,6 @@
 import { Component } from "react";
 import Balance from "../Balance";
-
+let id =0;
 class App extends Component {
     constructor() {
         super();
@@ -10,6 +10,7 @@ class App extends Component {
                 {
                     label: "void",
                     value: 0,
+                    id: 0
                 },
             ],
         };
@@ -37,6 +38,7 @@ class App extends Component {
                 {
                     label: "increase",
                     value: 1,
+                    id: ++id
                 },
             ],
         }));
@@ -49,6 +51,7 @@ class App extends Component {
                 {
                     label: "decrease",
                     value: 1,
+                    id: ++id
                 },
             ],
         }));
@@ -61,8 +64,14 @@ class App extends Component {
                 <button onClick={this.onDecrease}>Minus 1</button>
                 <button onClick={this.STORE}>STORE</button>
                 <ul>
+                    {JSON.stringify( this.state.transactions)}
+                </ul>
+                <ul>
                     {this.state.transactions.map((t) => {
-                        return <li>{t.label}</li>;
+                        return <li key={t.id}>
+                            <div>{t.label}</div>
+                            <div>{t.value}</div>
+                            </li>;
                     })}
                 </ul>
             </div>
