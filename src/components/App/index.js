@@ -1,6 +1,9 @@
-import { Component } from "react";
+import {Component} from "react";
 import Balance from "../Balance";
-let id =0;
+import Transactions from "../Transactions";
+
+let id = 0;
+
 class App extends Component {
     constructor() {
         super();
@@ -15,12 +18,14 @@ class App extends Component {
             ],
         };
     }
+
     componentDidMount() {
         let balance = JSON.parse(window.localStorage.getItem("balance"));
         this.setState({
             balance,
         });
     }
+
     STORE = () => {
         window.localStorage.setItem(
             "balance",
@@ -56,23 +61,29 @@ class App extends Component {
             ],
         }));
     };
+
+    renderTrans = () => {return (
+        this.state.transactions.map(t => {
+            return <Transactions key={t.id} label={t.label} value={t.value}/>
+        }))
+    }
+
+
+
     render() {
         return (
             <div>
-                <Balance balance={this.state.balance} />
+                <Balance balance={this.state.balance}/>
                 <button onClick={this.onIncrease}>Add 1</button>
                 <button onClick={this.onDecrease}>Minus 1</button>
                 <button onClick={this.STORE}>STORE</button>
+                
                 <ul>
-                    {JSON.stringify( this.state.transactions)}
-                </ul>
-                <ul>
-                    {this.state.transactions.map((t) => {
-                        return <li key={t.id}>
-                            <div>{t.label}</div>
-                            <div>{t.value}</div>
-                            </li>;
-                    })}
+                    {this.renderTrans()}
+                    {/*{this.state.transactions.map(t => {
+                        return <Transactions id={t.id} label={t.label} value={t.value}/>
+                    })
+                    }*/}
                 </ul>
             </div>
         );
