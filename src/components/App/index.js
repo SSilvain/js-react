@@ -57,10 +57,14 @@ class App extends Component {
         return (
             <div>
                 <Balance balance={this.state.balance} />
-                <div>{this.state.transactions[0].label}</div>
                 <button onClick={this.onIncrease}>Add 1</button>
                 <button onClick={this.onDecrease}>Minus 1</button>
                 <button onClick={this.STORE}>STORE</button>
+                <ul>
+                    {this.state.transactions.map((t) => {
+                        return <li>{t.label}</li>;
+                    })}
+                </ul>
             </div>
         );
     }
