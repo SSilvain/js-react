@@ -1,8 +1,10 @@
-const Transaction = ({ label, value }) => {
-                return <li>
-                    <div>{label}</div>
-                    <div>{value}</div>
-                </li>;
+const Transaction = ({ transactions }) => {
+    return (
+        <li>
+            <div>{transactions.label}</div>
+            <div>{transactions.value}</div>
+        </li>
+    );
 };
 
 export default Transaction;
