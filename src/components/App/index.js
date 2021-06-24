@@ -9,16 +9,33 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            value: 0,
+            value: "JS!",
+            par: "Some text",
+            view: true,
         };
+        this.foo = function () {
+            // ..
+        };
+
+        this.x = function bar() {
+            alert("hello");
+        };
+
+        this.x();
     }
 
-    componentDidMount() {}
+    componentDidMount() {
+        this.setState({ view: false });
+    }
 
     render() {
+        if (this.state.view) {
+            return <p>"loading..."</p>;
+        }
         return (
             <div>
-                <h1>JS</h1>
+                <h1>{this.state.value}</h1>
+                {/* <p>{ this.}</p> */}
             </div>
         );
     }
