@@ -24,13 +24,22 @@ class App extends Component {
         outFn()();
     }
 
+    newObject = Object.create(
+        {},
+        {
+            name: {
+                value: "Serhii",
+            },
+        }
+    );
+
     render() {
         if (this.state.view) {
             return <p>"loading..."</p>;
         }
         return (
             <div>
-                <h1>{this.state.value}</h1>
+                <h1>{this.newObject.name}</h1>
             </div>
         );
     }
