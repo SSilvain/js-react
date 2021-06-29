@@ -23,7 +23,12 @@ class App extends Component {
         outFn(0)(0);
         outFn()();
     }
-
+    newClosure = (days) => {
+        return (salary) => {
+            return days * salary;
+        };
+    };
+    fullSalaryFive = this.newClosure(5);
     newObject = Object.create(
         {},
         {
@@ -39,7 +44,7 @@ class App extends Component {
         }
         return (
             <div>
-                <h1>{this.newObject.name}</h1>
+                <h1>{this.fullSalaryFive(100)}</h1>
             </div>
         );
     }
